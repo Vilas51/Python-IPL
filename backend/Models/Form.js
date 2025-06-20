@@ -1,6 +1,6 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
-const Form = new mongoose.Schema({
+const FormSchema = new mongoose.Schema({
     FirstTeam: {
         type: String,
         required: true
@@ -8,8 +8,16 @@ const Form = new mongoose.Schema({
     SecondTeam: {
         type: String,
         required: true
+    },
+    FromYear: {
+        type: Number,  
+        required: true
+    },
+    ToYear: {
+        type: Number,
+        required: true
     }
-})
+});
 
-const FormSchema = mongoose.export('form', Form);
-module.exports(FormSchema);
+const Form = mongoose.model('Form', FormSchema);
+module.exports = Form;
